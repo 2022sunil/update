@@ -1,0 +1,205 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Finance management system</title>
+      
+        <!--
+          - custom css link
+        -->
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="./assets/css/media_queries.css">
+        <link rel="stylesheet" href="./assets/css/animation.css">
+        <link rel="stylesheet" href="./assets/css/calculator_style">
+
+      
+        <!--
+          - google font link
+        -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700;800;900&family=Roboto:wght@400;500&display=swap"
+          rel="stylesheet">
+       
+     <style>
+     .testimonials-right { position:absolute; padding: 30% 15px 0;  }
+     
+     .testimonials-card {
+  position: relative;
+  background: var(--white);
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 15px 30px hsla(0, 0%, 0%, 0.1);
+}
+
+
+     </style>
+
+
+
+
+
+    </head>
+<body>
+
+  <div class="container" style="margin-top: 8%;" >
+
+ <header>
+      <nav class="navbar">
+
+        <div class="navbar-brand">
+          <img src="side logo.png" alt="Loan logo">
+        </div>
+        <h2 style="margin-right:50%" >Apply for personal loan</h2>
+      </nav>
+
+    </header>
+ 
+
+    <!----------------------------------------form -------------------------------------------------->
+
+    <!----------------------------------------form end-------------------------------------------------->
+
+  
+
+
+
+    <section class="">
+
+
+      </div>
+
+      <div class="testimonials-right" style="left:17%; margin-bottom: 50% ; top:-50%" >
+
+        <div class="testimonials-card" style="left:-10% ;"  >
+
+         
+
+          <p class="testimonials-text">
+            <form action="Loan/code.php" method="POST" enctype="multipart/form-data" >
+              <h1>Loan Application</h1>
+              <fieldset>
+                <div class="testimonials-client">
+
+                  <div class="client-img-box">
+                    <img src="./assets/images/client.jpg" >
+                  </div>
+                  <div>
+                    <!-- <div class="form-group"> -->
+                    <lable>upload Your Image</lable>
+                    <inpute type="file" name="uploadimage" id="uploadimage" required >
+                    <!-- </div> -->
+                    <input type="file" id="uploadimage" name="uploadimage" required>
+                    
+                  </div><br>
+                  <!-- <p class="section-subtitle"><legend>Basic Information</legend></p> -->
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name" required />
+                <label for="middle initial">Middle Initial</label>
+                <input type="text" name="middle_initial" required />
+                <label for="last name">Last Name</label>
+                <input type="text" name="last_name"required />
+                <br/><br>
+                <div><label for="email address">Email</label>
+                <input type="text" name="email" placeholder="name@gmail.com" required />
+                <label for="telephone">Contact Number</label>
+                <input type="text" name="telephone" required /></div>
+                <br/><div>
+              </fieldset>
+              <fieldset>
+              <div class="testimonials-client">
+
+<div class="client-img-box">
+  <img src="Aadhar.png" >
+</div>
+<div>
+  <!-- <div class="form-group"> -->
+  <lable>upload Aadhar Card Image</lable>
+  <inpute type="file" name="aadhar" id="aadhar" required >
+  <!-- </div> -->
+  <input type="file" id="aadhar" name="aadhar" required>
+  
+  <!-- <p class="section-subtitle"><legend>User Address Validation</legend></p> -->
+                <label for="street_address">Street Address</label>
+                <input type="text" name="street_address" required />
+                <label for="city">City</label>
+                <input type="text" name="city" required />
+                <label for="state">State</label>
+                <input type="text" name="state"required />
+                <br/><br>
+                <div><label for="Pin_code">Pin Code</label>
+                <input type="text" name="Pin_code" required />
+                <br/><div>
+                </fieldset>
+              <fieldset>
+                <div class="testimonials-client">
+
+                    <div class="client-img-box">
+                      <img src="./assets/images/job_card.jpg" >
+                    </div>
+                    <div>
+                      <!-- <div class="form-group"> -->
+                        <!-- <p class="section-subtitle">
+                      <lable>upload your job card image</lable></p> -->
+                      <inpute type="file" name="idcard" id="idcard" required >
+                      <!-- </div> -->
+                      <input type="file" id="idcard" name="idcard" required><br>
+
+                <legend>upload your job card image</legend><br>
+
+                <label for="occupation">Current Occupation</label>
+                <input type="text" name="occupation" required/>
+                <label for="company name">Employer Name</label>
+                <input type="text" name="company_name" required/>
+                <label for="company location">Employer Address</label>
+                <input type="text" name="company_location" required/>
+              </fieldset>
+              <fieldset>
+                <legend>Amount</legend>
+                             <br/>
+                <label for="loan amount">Loan Amount</label>
+                <input type="text" name="loan_amount" required />
+              </fieldset>
+              <fieldset>
+                <legend>Special Considerations</legend>
+                <label for="down payment">Down Payment</label>
+                <input type="text" name="down_payment"required />
+                <input type="checkbox" name="out-of-state" value="out-of-state">Out of State Resident
+                <input type="checkbox" name="cosigner" value="cosigner">Cosigner
+                <br/>
+                <label for="name">Name of Cosigner</label>
+                <input type="text" name="name_of_cosigner" required/>
+                <label for="occupation">Cosigner Occupation</label>
+                <input type="text" name="cosigner_occupation"required />
+              </fieldset>
+              
+              
+            <!-- <button class="btn btn-primary btn-text square btn-secondary" type="submit" name="save_user" >Submit</button> -->
+ 
+            <button class="btn btn-primary" type="submit" name="save_user"  >
+                <p class="btn-text">Submit</p>
+                <span class="square"></span>
+              </button>
+                
+            </form>
+        
+          </p>
+
+          
+
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+
+    
+
+</body>
+</html>

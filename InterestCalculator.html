@@ -1,0 +1,278 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Finance management system</title>
+      
+        <!--
+          - custom css link
+        -->
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="./assets/css/media_queries.css">
+        <link rel="stylesheet" href="./assets/css/animation.css">
+        <link rel="stylesheet" href="./assets/css/calculator_style">
+
+      
+        <!--
+          - google font link
+        -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700;800;900&family=Roboto:wght@400;500&display=swap"
+          rel="stylesheet">
+        <style>
+
+
+* {
+  padding: 0;
+  margin: 0;
+  position: relative;
+    z-index: 2;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+/*body {
+  height: 100vh;
+  background: linear-gradient(#01e26e, #72ffb4);
+}*/
+.cal_container {
+  background-color: hsl(15, 100%, 55%);
+  position: relative;
+  transform: translate(-50%, -50%);
+  margin-top: 5%;
+  top: 180;
+  left: 50%;
+  width: 80vw;
+  max-width: 600px;
+  min-width: 350px;
+  padding: 60px 30px;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+label {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+input {
+  margin-bottom: 20px;
+  border: none;
+  font-size: 20px;
+  border-bottom: 2px solid #585858;
+  color: #585858;
+  padding: 2px 15px;
+}
+input:focus {
+  outline: none;
+  border-bottom: 2.4px solid #01e26e;
+}
+.input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.input-wrapper input {
+  width: 100%;
+}
+.time-wrapper input {
+  width: 60%;
+}
+select {
+  width: 35%;
+  border: 1px solid #585858;
+  font-size: 20px;
+  margin-left: 3%;
+  padding: 8px 0;
+  border-radius: 5px;
+}
+button {
+  display: block;
+  background-color: #01e26e;
+  border: none;
+  color: #ffffff;
+  margin: 20px auto 0 auto;
+  padding: 15px 40px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+#result {
+  background-color: #c6ffe2;
+  margin-top: 30px;
+  color: #585858;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+  border-radius: 5px;
+}
+#result div {
+  margin-bottom: 10px;
+}
+#result span {
+  color: #000000;
+  font-weight: 500;
+}
+
+
+
+
+
+
+        </style>
+
+
+    </head>
+<body>
+
+  <div class="container" style="margin-top: 8%;" >
+
+    <header>
+      <nav class="navbar">
+
+        <div class="navbar-brand">
+          <img src="side logo.png" alt="Loan logo">
+        </div>
+
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="loan_catagare.html">loan</a>
+          
+          <li class="nav-item">
+            <a href="Contact_us.html">Contact Us</a>
+          </li>
+
+        </ul>
+
+        <button class="btn btn-primary">
+          <p class="btn-text">Get Loan</p>
+          <span class="square"></span>
+        </button>
+
+        <button class="nav-toggle-btn">
+          <span class="one"></span>
+          <span class="two"></span>
+          <span class="three"></span>
+        </button>
+
+      </nav>
+
+  </header>
+
+
+
+
+
+<section class="about" id="">
+
+        <div class="cal_set">
+
+
+
+         <div class="cal_container">
+      <div class="input-wrapper">
+        <div class="wrapper">
+          <label for="principal">Principal Amount:</label>
+          <input type="number" id="principal" value="1000" />
+        </div>
+        <div class="wrapper">
+          <label for="rate">Rate:</label>
+          <input type="number" id="rate" value="5" />
+        </div>
+      </div>
+      <label for="time">Time:</label>
+      <div class="time-wrapper">
+        <input type="number" id="time" value="1" />
+        <select name="duration" id="duration">
+          <option value="year">Year</option>
+          <option value="month">Month</option>
+        </select>
+      </div>
+      <button id="calculate-btn">Calculate</button>
+      <div id="result"></div>
+    </div>
+    <!-- Script -->
+    <script >
+
+      let calculateBtn = document.getElementById("calculate-btn");
+let result = document.getElementById("result");
+let calculate = () => {
+  let p = Number(document.getElementById("principal").value);
+  let r = Number(document.getElementById("rate").value);
+  let t = Number(document.getElementById("time").value);
+  let duration = document.getElementById("duration").value;
+  let simpleInterest =
+    duration == "year" ? (p * r * t) / 100 : (p * r * t) / 1200;
+  let amount = p + simpleInterest;
+
+  result.innerHTML = `<div>Principal Amount: <span>${p.toFixed(2)}</span></div>
+  <div>Total Interest: <span>${simpleInterest.toFixed(2)}</span></div>
+  <div>Total Amount: <span>${amount.toFixed(2)}</span></div>`;
+};
+calculateBtn.addEventListener("click", calculate);
+window.addEventListener("load", calculate);
+      
+
+
+
+   </script>
+
+          
+
+        </div>
+
+        <div class="about-right">
+
+          <!-- <p class="section-subtitle">About Us</p> -->
+
+          <h2 class="section-title">Simple Interest Calculator</h2>
+
+          <p class="section-text">
+           A simple interest calculator is a utility tool that calculates the interest on loans or savings without compounding. You may calculate the simple interest on the principal amount on a daily, monthly, or yearly basis. The simple interest calculator has a formula box, where you enter the principal amount, annual rate, and period in days, months, or years. The calculator will display interest on the loan or the investment.
+          </p>
+
+         <h2 class="section_title">How Does Simple Interest Calculators work?</h2>
+         <p class="section-text">The simple interest calculator will show the accrued amount that includes both principal and the interest. The simple interest calculator works on the mathematical formula:<br>
+
+A = P (1+rt)<br>
+
+P = Principal Amount<br>
+R = Rate of interest<br>
+t = Number of years<br>
+A = Total accrued amount (Both principal and the interest)<br>
+
+Interest = A – P.<br>
+
+Let’s understand the workings of the simple interest calculator with an example. The principal amount is Rs 10,000, the rate of interest is 10% and the number of years is six. You can calculate the simple interest as:
+<br>
+A = 10,000 (1+0.1*6) = Rs 16,000.
+<br>
+Interest = A – P = 16000 – 10000 = Rs 6,000.
+<br>
+<p>
+       
+
+        </div>
+
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
